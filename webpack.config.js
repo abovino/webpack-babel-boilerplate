@@ -7,16 +7,42 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-	entry: './client/App.js',
+	entry: './client/index.js',
 	output: {
 		path: path.resolve('dist'),
 		filename: 'index_bundle.js'
 	},
 	module: {
-		loaders: [
-			{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-			{ test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-		]
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use: ['babel-loader']
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: ['babel-loader','eslint-loader']
+			}
+		],
 	},
 	plugins: [HtmlWebpackPluginConfig]
 }
+
+/* 
+
+loaders: [
+			{ 
+				test: /\.js$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/
+			},
+			{ 
+				test: /\.jsx$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/
+			},
+			
+		]
+
+*/
