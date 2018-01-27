@@ -28,21 +28,3 @@ module.exports = {
 	},
 	plugins: [HtmlWebpackPluginConfig]
 }
-
-/* 
-
-loaders: [
-			{ 
-				test: /\.js$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/
-			},
-			{ 
-				test: /\.jsx$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/
-			},
-			
-		]
-
-*/
